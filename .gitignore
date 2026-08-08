@@ -1,0 +1,78 @@
+# ============================================================
+# Terraform
+# ============================================================
+
+# Terraform working directory
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.*
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Terraform plan files
+*.tfplan
+*.plan
+
+# Terraform variable files containing potentially sensitive values
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Terraform CLI configuration
+.terraformrc
+terraform.rc
+
+# ============================================================
+# Secrets / Credentials
+# ============================================================
+
+# Environment files
+.env
+.env.*
+
+# Azure credentials / service principal files
+*.pem
+*.key
+*.pfx
+*.cer
+
+# Azure CLI / authentication artifacts
+.azure/
+
+# ============================================================
+# OS / Editor
+# ============================================================
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Visual Studio
+.vs/
+
+# ============================================================
+# Logs
+# ============================================================
+
+*.log
+
+# ============================================================
+# Temporary files
+# ============================================================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
