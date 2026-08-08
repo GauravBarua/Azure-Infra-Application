@@ -20,3 +20,20 @@ module "subnet" {
 
   subnets = var.subnets
 }
+
+module "nsg" {
+  source = "./modules/nsg"
+
+  nsgs = var.nsgs
+
+  location            = azurerm_resource_group.my_rg.location
+  resource_group_name = azurerm_resource_group.my_rg.name
+  tags                = var.tags
+}
+
+resource "azurerm_subnet_network_security_group_association" "this" {
+  for_each = var.nsgs
+
+  subnet_id                 = module.subnet.subnet_ids[each.key]
+  network_security_group_id = module.nsg.nsg_ids[each.key]
+}
