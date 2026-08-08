@@ -35,3 +35,60 @@ subnets = {
     ]
   }
 }
+
+# ========================================
+#            NSGs Vars
+# ========================================
+nsgs = {
+  app = {
+    name = "az-tf-practice-app-nsg-dev-01"
+
+    security_rules = {
+
+      allow_https = {
+        name                       = "AllowHTTPS"
+        priority                   = 100
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "443"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+      }
+
+      allow_http = {
+        name                       = "AllowHTTP"
+        priority                   = 110
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "80"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+      }
+
+    }
+  }
+
+  data = {
+    name = "az-tf-practice-data-nsg-dev-02"
+
+    security_rules = {
+
+      allow_postgres = {
+        name                       = "AllowPostgreSQL"
+        priority                   = 100
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "5432"
+        source_address_prefix      = "10.0.0.0/24"
+        destination_address_prefix = "*"
+      }
+
+    }
+  }
+}
