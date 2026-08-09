@@ -31,6 +31,14 @@ module "nsg" {
   tags                = var.tags
 }
 
+module "route_table" {
+  source = "./modules/route-table"
+
+  location            = azurerm_resource_group.my_rg.location
+  resource_group_name = azurerm_resource_group.my_rg.name
+  route_tables        = var.route_tables
+  tags                = var.tags
+}
 resource "azurerm_subnet_network_security_group_association" "this" {
   for_each = var.nsgs
 

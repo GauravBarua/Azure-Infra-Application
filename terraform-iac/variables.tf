@@ -59,3 +59,19 @@ variable "nsgs" {
     }))
   }))
 }
+
+variable "route_tables" {
+  description = "Route tables to create for each environment"
+
+  type = map(object({
+    name                          = string
+    bgp_route_propagation_enabled = bool
+
+    routes = map(object({
+      name                   = string
+      address_prefix         = string
+      next_hop_type          = string
+      next_hop_in_ip_address = optional(string)
+    }))
+  }))
+}

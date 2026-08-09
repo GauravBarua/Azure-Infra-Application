@@ -1,19 +1,22 @@
+# ========================================
+#            Generic Vars
+# ========================================
 resource_group_name = "az-tf-practice-dev-rg1"
 location            = "Central India"
 environment         = "dev"
+tags = {
+  environment = "dev"
+  project     = "azure-infra"
+  managed_by  = "terraform"
+  owner       = "Gaurav.barua.dev@gmail.com"
+  cost-centre = "Personal BU 4653H"
+}
 
 # ========================================
 #            Vnet Vars
 # ========================================
 address_space = ["10.0.0.0/17"]
 dns_servers   = ["10.0.0.4", "10.0.0.5"]
-tags = {
-  environment = "dev"
-  project     = "azure-infra"
-  managed_by  = "terraform"
-  owner       = "Gaurav.Barua@lseg.com"
-  cost-centre = "Personal BU 4653H"
-}
 
 # ========================================
 #            Subnets Vars
@@ -90,5 +93,23 @@ nsgs = {
       }
 
     }
+  }
+}
+# ========================================
+#            Route table/UDRs Vars
+# ========================================
+route_tables = {
+  app = {
+    name                          = "az-tf-practice-app-rt-dev-01"
+    bgp_route_propagation_enabled = true
+
+    routes = {}
+  }
+
+  data = {
+    name                          = "az-tf-practice-data-rt-dev-01"
+    bgp_route_propagation_enabled = true
+
+    routes = {}
   }
 }
