@@ -31,6 +31,12 @@ module "nsg" {
   tags                = var.tags
 }
 
+resource "azurerm_subnet_network_security_group_association" "this" {
+  for_each = var.nsgs
+
+  subnet_id                 = module.subnet.subnet_ids[each.key]
+  network_security_group_id = module.nsg.nsg_ids[each.key]
+}
 module "route_table" {
   source = "./modules/route-table"
 
@@ -39,9 +45,9 @@ module "route_table" {
   route_tables        = var.route_tables
   tags                = var.tags
 }
-resource "azurerm_subnet_network_security_group_association" "this" {
-  for_each = var.nsgs
 
-  subnet_id                 = module.subnet.subnet_ids[each.key]
-  network_security_group_id = module.nsg.nsg_ids[each.key]
+resource "azurerm_subnet_route_table_association" "this" {
+  for_each = var.route_tables
+  subnet_id      = module.subnet.subnet_ids[each.key]
+  route_table_id = module.route_table.route_table_ids[each.key]
 }

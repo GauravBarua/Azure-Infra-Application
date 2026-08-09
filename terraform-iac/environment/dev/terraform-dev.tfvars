@@ -107,7 +107,7 @@ route_tables = {
   }
 
   data = {
-    name                          = "az-tf-practice-data-rt-dev-01"
+    name                          = "az-tf-practice-data-rt-dev-02"
     bgp_route_propagation_enabled = true
 
     routes = {}
