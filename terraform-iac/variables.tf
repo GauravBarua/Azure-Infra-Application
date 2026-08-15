@@ -75,3 +75,27 @@ variable "route_tables" {
     }))
   }))
 }
+
+variable "linux_vm_name" {
+  description = "Linux VM name"
+  type        = string
+}
+
+variable "linux_vm_size" {
+  description = "Linux VM size"
+  type        = string
+}
+
+variable "linux_admin_username" {
+  description = "Linux VM administrator username"
+  type        = string
+}
+
+variable "linux_admin_ssh_public_key" {
+  description = "SSH public key for Linux VM provisioning"
+  type        = string
+}
+variable "linux_vm_login_principal_id" {
+  description = "Object ID of the Microsoft Entra user or group that should be allowed to log in to the Linux VM"
+  type        = string
+}

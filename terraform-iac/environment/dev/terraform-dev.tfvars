@@ -16,7 +16,7 @@ tags = {
 #            Vnet Vars
 # ========================================
 address_space = ["10.0.0.0/17"]
-dns_servers   = ["10.0.0.4", "10.0.0.5"]
+dns_servers   = [] # use default dns
 
 # ========================================
 #            Subnets Vars
@@ -113,3 +113,15 @@ route_tables = {
     routes = {}
   }
 }
+# ========================================
+#            Virtual Machine - Linux
+# ========================================
+linux_vm_name = "az-tf-practice-linux-vm-dev-01"
+
+linux_vm_size = "Standard_D4as_v5"
+
+linux_admin_username = "azureadmin"
+
+linux_admin_ssh_public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHBbFx0X5YAMVmoWUZikXlitG4dwfLhoJZYNSo6NbBt3 azure-tf-linux-vm"
+
+linux_vm_login_principal_id = "0a712102-a783-4fb1-8daf-8125014fdf81"

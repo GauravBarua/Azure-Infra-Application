@@ -37,3 +37,23 @@ output "subnet_names" {
   description = "Map of subnet keys to subnet names"
   value       = module.subnet.subnet_names
 }
+
+output "linux_vm_id" {
+  description = "Linux VM resource ID"
+  value       = module.linux_vm.vm_id
+}
+
+output "linux_vm_name" {
+  description = "Linux VM name"
+  value       = module.linux_vm.vm_name
+}
+
+output "linux_vm_private_ip" {
+  description = "Linux VM private IP address"
+  value       = module.linux_vm.private_ip_address
+}
+
+output "linux_vm_managed_identity_principal_id" {
+  description = "Linux VM system-assigned managed identity principal ID"
+  value       = module.linux_vm.principal_id
+}
