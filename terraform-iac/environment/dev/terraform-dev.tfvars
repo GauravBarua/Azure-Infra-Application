@@ -37,6 +37,14 @@ subnets = {
       "10.0.1.0/24"
     ]
   }
+
+  windows_vm = {
+    name = "az-tf-practice-app-subnet-dev-01"
+
+    address_prefixes = [
+      "10.0.3.0/24"
+    ]
+  }
 }
 
 # ========================================
@@ -72,6 +80,17 @@ nsgs = {
         destination_address_prefix = "*"
       }
 
+      allow_bastion_ssh = {
+        name                       = "AllowSSHFromBastion"
+        priority                   = 120
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "22"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+      }
     }
   }
 
@@ -125,3 +144,16 @@ linux_admin_username = "azureadmin"
 linux_admin_ssh_public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHBbFx0X5YAMVmoWUZikXlitG4dwfLhoJZYNSo6NbBt3 azure-tf-linux-vm"
 
 linux_vm_login_principal_id = "0a712102-a783-4fb1-8daf-8125014fdf81"
+
+admin_ssh_private_key_path = "C:/Users/Gaurav/.ssh/azure-tf-linux-vm-new"
+
+# ========================================
+#            Virtual Machine - Windows
+# ========================================
+windows_vm_name = "az-tf-practice-windows-vm-dev-02"
+
+windows_vm_size = "Standard_D4as_v5"
+
+windows_admin_username = "azureadmin"
+
+windows_admin_password = "ADM111***in123"

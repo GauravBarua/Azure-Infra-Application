@@ -99,3 +99,28 @@ variable "linux_vm_login_principal_id" {
   description = "Object ID of the Microsoft Entra user or group that should be allowed to log in to the Linux VM"
   type        = string
 }
+
+variable "admin_ssh_private_key_path" {
+  description = "Path to the SSH private key used for VM provisioning"
+  type        = string
+}
+
+variable "windows_vm_name" {
+  description = "Windows VM name"
+  type        = string
+}
+
+variable "windows_vm_size" {
+  description = "Windows VM size"
+  type        = string
+}
+
+variable "windows_admin_username" {
+  description = "Windows VM administrator username"
+  type        = string
+}
+
+variable "windows_admin_password" {
+  description = "Windows VM administrator password"
+  type        = string
+}

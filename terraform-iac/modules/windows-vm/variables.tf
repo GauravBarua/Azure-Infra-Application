@@ -1,10 +1,10 @@
 variable "vm_name" {
-  description = "Name of the Linux virtual machine"
+  description = "Name of the Windows virtual machine"
   type        = string
 }
 
 variable "vm_size" {
-  description = "Size of the Linux virtual machine"
+  description = "Size of the Windows virtual machine"
   type        = string
 }
 
@@ -24,22 +24,18 @@ variable "subnet_id" {
 }
 
 variable "admin_username" {
-  description = "Linux administrator username"
+  description = "Windows administrator username"
   type        = string
 }
 
-variable "admin_ssh_public_key" {
-  description = "SSH public key used for initial Linux VM provisioning"
+variable "admin_password" {
+  description = "Windows administrator password"
   type        = string
+  sensitive   = true
 }
 
 variable "tags" {
   description = "Tags to apply to the VM and NIC"
   type        = map(string)
   default     = {}
-}
-
-variable "admin_ssh_private_key_path" {
-  description = "Path to the SSH private key used to connect to the VM"
-  type        = string
 }

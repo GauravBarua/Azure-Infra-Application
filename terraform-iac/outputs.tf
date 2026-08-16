@@ -57,3 +57,18 @@ output "linux_vm_managed_identity_principal_id" {
   description = "Linux VM system-assigned managed identity principal ID"
   value       = module.linux_vm.principal_id
 }
+
+output "windows_vm_id" {
+  description = "Windows VM resource ID"
+  value       = module.windows_vm.vm_id
+}
+
+output "windows_vm_name" {
+  description = "Windows VM name"
+  value       = module.windows_vm.vm_name
+}
+
+output "windows_vm_private_ip" {
+  description = "Windows VM private IP address"
+  value       = module.windows_vm.private_ip_address
+}
